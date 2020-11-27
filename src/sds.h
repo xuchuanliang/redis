@@ -38,9 +38,14 @@
 
 typedef char *sds;
 
+//sdshdr是redis中用来存储字符串的数据结构
 struct sdshdr {
+    //记录buf中已使用的字节数量
+    //len值等于SDS所保存字符串的长度
     unsigned int len;
+    //记录buf中未使用的字节的数量
     unsigned int free;
+    //字节数组，用来保存字符串
     char buf[];
 };
 
